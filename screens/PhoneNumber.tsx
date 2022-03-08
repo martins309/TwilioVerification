@@ -45,7 +45,7 @@ const PhoneNumber  = ({  }) => {
            style={styles.button}
            onPress={() => {
             sendSmsVerification(formattedValue).then((sent) => {
-            navigation.navigate("Otp")
+            navigation.navigate("Otp", { phoneNumber: formattedValue })
               console.log("Sent!");
             });
           }}
