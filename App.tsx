@@ -11,7 +11,7 @@ import Otp from "./screens/Otp";
     Otp: undefined;
     Gated: undefined;
   } | Record<string, object | undefined>
-  
+
 const App = () => {
   
 

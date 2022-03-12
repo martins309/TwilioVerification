@@ -13,7 +13,7 @@ import { useRoute } from '@react-navigation/native';
 
 const Otp = ()  => {
  const route = useRoute()
- const phoneNumber  = route.params;
+ const { phoneNumber } = route.params;
  const [invalidCode, setInvalidCode] = useState(false);
  const navigation = useNavigation<NativeStackNavigationProp<StackParamList>>()
 
