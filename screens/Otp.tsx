@@ -7,13 +7,13 @@ import { useNavigation } from "@react-navigation/native";
 import {  NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { StackParamList } from "../App";
 import { useRoute } from '@react-navigation/native';
-
-
+import PhoneNumber from "./PhoneNumber";
+import PhoneInput from "react-native-phone-number-input";
 
 
 const Otp = ()  => {
  const route = useRoute()
- const { phoneNumber } = route.params;
+ const  phoneNumber   = route.params ;
  const [invalidCode, setInvalidCode] = useState(false);
  const navigation = useNavigation<NativeStackNavigationProp<StackParamList>>()
 

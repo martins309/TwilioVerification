@@ -4,11 +4,12 @@ import { createNativeStackNavigator, NativeStackScreenProps } from "@react-navig
 
 import PhoneNumber from "./screens/PhoneNumber";
 import Otp from "./screens/Otp";
+import Gated from "./screens/Gated"
 
 
  export type StackParamList = {
     PhoneNumber: undefined;
-    Otp: undefined;
+    Otp: {phoneNumber: string}
     Gated: undefined;
   } | Record<string, object | undefined>
 
@@ -27,6 +28,7 @@ const App = () => {
       >
         <Stack.Screen name="PhoneNumber" component={PhoneNumber} />
         <Stack.Screen name="Otp" component={Otp} />
+        <Stack.Screen name="Gated" component={Gated} />
       </Stack.Navigator>
     </NavigationContainer>
   );
