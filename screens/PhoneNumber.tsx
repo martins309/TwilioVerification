@@ -10,14 +10,17 @@ import { Colors } from "react-native/Libraries/NewAppScreen";
 import PhoneInput from "react-native-phone-number-input";
 import { sendSmsVerification } from "../api/verify";
 import { useNavigation } from "@react-navigation/native";
+import { StackParamList } from "../App";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+
+type OtpScreenType = NativeStackNavigationProp<StackParamList,'Otp'>
 
 
-
-const PhoneNumber  = ({  }) => {
+const PhoneNumber  = () => {
  const [value, setValue] = useState("");
  const [formattedValue, setFormattedValue] = useState("");
  const phoneInput = useRef<PhoneInput>(null);
- const navigation = useNavigation()
+ const navigation = useNavigation<OtpScreenType>()
 
  return (
    <>
@@ -45,8 +48,9 @@ const PhoneNumber  = ({  }) => {
            style={styles.button}
            onPress={() => {
             sendSmsVerification(formattedValue).then((sent) => {
-            navigation.navigate("Otp", { phoneNumber: formattedValue })
+            navigation.navigate("Otp")
               console.log("Sent!");
+              console.log('this is  the formatted value', formattedValue)
             });
           }}
          >

@@ -1,15 +1,19 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createNativeStackNavigator, NativeStackScreenProps } from "@react-navigation/native-stack";
 
 import PhoneNumber from "./screens/PhoneNumber";
 import Otp from "./screens/Otp";
 
-const App = () => {
-  type StackParamList = {
+
+ export type StackParamList = {
     PhoneNumber: undefined;
     Otp: undefined;
-  };
+    Gated: undefined;
+  } | Record<string, object | undefined>
+  
+const App = () => {
+  
 
   const Stack = createNativeStackNavigator<StackParamList>();
 

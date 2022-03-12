@@ -3,12 +3,22 @@ import { SafeAreaView, StyleSheet, Button, Text } from "react-native";
 
 import { checkVerification } from "../api/verify";
 import OTPInputView from "@twotalltotems/react-native-otp-input";
+import { useNavigation } from "@react-navigation/native";
+import {  NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { StackParamList } from "../App";
+import { useRoute } from '@react-navigation/native';
 
 
 
-const Otp = ({ route, navigation }) => {
- const { phoneNumber } = route.params;
+
+const Otp = ()  => {
+ const route = useRoute()
+ const phoneNumber  = route.params;
  const [invalidCode, setInvalidCode] = useState(false);
+ const navigation = useNavigation<NativeStackNavigationProp<StackParamList>>()
+
+
+
  return (
    <SafeAreaView style={styles.wrapper}>
      <Text style={styles.prompt}>Enter the code we sent you</Text>
